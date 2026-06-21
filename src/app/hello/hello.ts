@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './hello.html',
   styleUrl: './hello.scss',
 })
-export class Hello {}
+export class Hello {
+  protected title = 'Hello from Angular';
+  protected isDisabled = false;
+  onClick() {
+    console.log('Button click he-he!');
+    this.isDisabled = !this.isDisabled;
+  }
+}
