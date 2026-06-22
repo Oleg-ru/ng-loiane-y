@@ -1,0 +1,10 @@
+button {
+  padding: 10px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  margin: 3px;
+  &:hover {
+    background: cornflowerblue;
+  }
+}
