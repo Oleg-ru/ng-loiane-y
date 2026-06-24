@@ -23,6 +23,7 @@ export class ProductsGrid {
       name: 'MacBook Air 15"',
       description: '15.3-дюймовый Liquid Retina, M2 чип, 8GB RAM, 256GB SSD',
       price: 1199,
+      originalPrice: 1299,
     },
     {
       id: 3,
@@ -35,6 +36,7 @@ export class ProductsGrid {
       name: 'Sony WH-1000XM5',
       description: 'Наушники с шумоподавлением, до 30 часов работы, LDAC',
       price: 349,
+      originalPrice: 399,
     },
     {
       id: 5,
@@ -47,6 +49,7 @@ export class ProductsGrid {
       name: 'iPad Pro 12.9" M2',
       description: '12.9-дюймовый Liquid Retina XDR, M2 чип, поддержка Apple Pencil',
       price: 1099,
+      originalPrice: 1199,
     },
   ]);
 }
