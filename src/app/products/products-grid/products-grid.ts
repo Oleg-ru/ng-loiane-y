@@ -73,15 +73,16 @@ export class ProductsGrid {
 
     return this.products().filter(
       (product) =>
-        product.name.toLowerCase().includes(term) || product.description.toLowerCase().includes(term),
+        product.name.toLowerCase().includes(term) ||
+        product.description.toLowerCase().includes(term),
     );
   });
 
-  protected clearSearch( ) {
+  protected clearSearch() {
     this.searchTerm.set('');
   }
 
-  protected trimSearch() {
-    this.searchTerm.update((prev) => prev.trim());
+  protected onAddToCart(product: Product) {
+    console.log(product);
   }
 }
