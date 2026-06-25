@@ -1,15 +1,29 @@
 import { Component, signal } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
 import { Product } from '../product';
-import { MatIcon } from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-products-grid',
-  imports: [ProductCard, MatIcon],
+  imports: [
+    ProductCard,
+    MatIcon,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatIconModule,
+  ],
   templateUrl: './products-grid.html',
   styleUrl: './products-grid.scss',
 })
 export class ProductsGrid {
+  protected readonly searchTerm = signal('');
+
   protected readonly products = signal<Product[]>([
     {
       id: 1,
@@ -52,4 +66,12 @@ export class ProductsGrid {
       originalPrice: 1199,
     },
   ]);
+
+  protected clearSearch( ) {
+    this.searchTerm.set('');
+  }
+
+  protected trimSearch() {
+    this.searchTerm.update((prev) => prev.trim());
+  }
 }
