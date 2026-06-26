@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
 import { Product } from '../product';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { CartService } from '../../cart/cart-service';
 
 @Component({
   selector: 'app-products-grid',
@@ -22,6 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './products-grid.scss',
 })
 export class ProductsGrid {
+  private readonly cartService = inject(CartService);
+
   protected readonly searchTerm = signal('');
 
   protected readonly products = signal<Product[]>([
@@ -83,6 +86,6 @@ export class ProductsGrid {
   }
 
   protected onAddToCart(product: Product) {
-    console.log(product);
+    this.cartService.addToCart(product);
   }
 }
